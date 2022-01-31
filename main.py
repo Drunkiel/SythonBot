@@ -6,6 +6,7 @@ import requests
 from discord.ext import commands
 from dotenv import load_dotenv
 
+# todo fix load env
 load_dotenv()
 
 bot = commands.Bot(command_prefix='.')
@@ -20,6 +21,7 @@ async def on_ready():
     print(f'{bot.user} has connected to Discord!')
 
 
+# seperate commands
 # New commands
 @bot.command(name='slap')
 async def slap(ctx, user: discord.Member):
