@@ -3,6 +3,10 @@ from discord.ext import commands
 import requests
 import json
 
+# set the apikey and limit
+apikey = ""
+lmt = 1
+
 class MyCog(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
