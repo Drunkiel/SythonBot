@@ -2,10 +2,14 @@ import discord
 from discord.ext import commands
 import requests
 import json
+import os
+from dotenv import load_dotenv
 
-# set the apikey and limit
-apikey = ""
-lmt = 1
+load_dotenv()
+
+# api key and limit from .env
+APIKEY = os.getenv("API_KEY")
+LMT = os.getenv("LMT")
 
 class MyCog(commands.Cog):
     def __init__(self, bot):
@@ -21,7 +25,7 @@ class MyCog(commands.Cog):
 
         # get random results using default locale of EN_US
         r = requests.get(
-            "https://g.tenor.com/v1/random?q=%s&key=%s&limit=%s" % (search_term, apikey, lmt))
+            "https://g.tenor.com/v1/random?q=%s&key=%s&limit=%s" % (search_term, APIKEY, LMT))
 
         if r.status_code == 200:
             gifs = json.loads(r.content)
